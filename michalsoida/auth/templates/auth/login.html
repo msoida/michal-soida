@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+{% block content %}
+	<form method="post" action="." autocomplete="off">
+		<input type="hidden" name="next" value="{{ next }}">
+		username: <input type="text" name="username" value="{{ username }}" required><br>
+		password: <input type="password" name="password" required><br>
+		remember login: <input type="checkbox" name="remember" value="yes"><br>
+		<input type="submit" value="Log in">
+	</form>
+{%- endblock %}

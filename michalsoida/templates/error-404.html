@@ -1,0 +1,6 @@
+{% extends "error.html" %}
+{% block title %}Błąd 404{% endblock %}
+{% block name %}Błąd 404: Strona nie została odnaleziona{% endblock %}
+{% block desc -%}
+<p>Jeżeli strona o takim adresie powinna istnieć, <a href="{{ url_for('kontakt') }}">poinformuj mnie</a> o błędzie.</p>
+{%- endblock %}

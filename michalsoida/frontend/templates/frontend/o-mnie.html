@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}O mnie{% endblock %}
+{% block content %}	<h1>Witam na mojej stronie!</h1>
+	<h2>O mnie</h2>
+	<hr>
+	<p>Nazywam się Michał Soida. Zajmuję się robotyką - zarówno profesjonalnymi manipulatorami przemysłowymi, sterownikami PLC, jak i amatorskimi mikrokontrolerami, minikompuerami. Studiuję Inżynierię Mechatroniczną na <a href="http://www.agh.edu.pl/">Akademii Górniczo-Hutniczej</a>. Jestem absolwentem <a href="http://www.v-lo.krakow.pl/">V Liceum Ogólnokształcącego</a> w Krakowie. Zajmuję się wsparciem informatycznym i technicznym w <a href="http://www.soidaconsulting.com/">Soida Management Consulting &amp; Coaching</a>. Więcej informacji o mnie można znaleźć w moim <a href="{{ url_for('static', filename='cv_michal_soida.pdf') }}">CV</a>.</p>
+	</p>W wolnym czasie tworzę różne rzeczy, część z nich można znaleźć w <a href="{{ url_for('projekty') }}">galerii projektów</a>.</p>
+	<h2>Więcej</h2>
+	<hr>
+	<ul>
+		<li><a href="https://www.facebook.com/msoida">Facebook</a></li>
+		<li><a href="https://twitter.com/msoida">Twitter</a></li>
+		<li><a href="https://plus.google.com/+MichałSoida/">Google+</a></li>
+		<li><a href="https://www.linkedin.com/in/msoida">LinkedIn</a></li>
+		<li><a href="http://www.lastfm.pl/user/msoida">Last.fm</a></li>
+	</ul>
+{%- endblock %}

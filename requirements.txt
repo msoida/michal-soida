@@ -1,0 +1,6 @@
+flask
+pytz
+python-decouple
+flask-mongoengine
+flask-login
+passlib

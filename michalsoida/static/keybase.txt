@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/msoida
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://michal.soida.pl
+  * I am msoida (https://keybase.io/msoida) on keybase.
+  * I have a public key with fingerprint A5E7 1E9B C893 7CB1 3947  1159 F055 DBF2 9213 EDEF
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01010bdfc4a76c7b0a8c45ca2f5e4c69256586e378735d12e20d272358d061ad6be80a",
+            "fingerprint": "a5e71e9bc8937cb139471159f055dbf29213edef",
+            "host": "keybase.io",
+            "key_id": "f055dbf29213edef",
+            "kid": "01010bdfc4a76c7b0a8c45ca2f5e4c69256586e378735d12e20d272358d061ad6be80a",
+            "uid": "bbef93537fd82401c79d5efd49347119",
+            "username": "msoida"
+        },
+        "service": {
+            "hostname": "michal.soida.pl",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1472152015,
+    "expire_in": 157680000,
+    "prev": "498327ea2ba7bd665c094bc0e92ce31e8f7731ed5a7d7a56c9eb80f89bd6a85c",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.56
+Comment: https://keybase.io/crypto
+
+yMImAnicrVJZSFRRGB7brJmsqIc2srptRDLc7dxz77SQCka00EKKLU5nu+PVae50
+73VsyIkWc3xoIURUWighWqCgxSAIrLAiDYSioCgkCioowkqi8qFzpd567JyHn/P/
+3/ed7//5u/KGB4I5r/ubr5fmrbiR03OntSZQ1lnYu1vANk0Lkd1CNRsKLE6Z60Wr
+LSpEBFHiF1OTqAhqBGIR6UQFBMkmYCrRDBloQNeYAnWoACrJTBapDGUF6FTUJEQ1
+zHQRCQWCaSVizEk6VsLjsggwKDEDE91QIMGSYqhQkoBhigBQbMqGLCmMMpMTK23X
+Z3BzGLksbNk8xx/RIXv/wP9n3zVDchgz01CAAk2qy6ooEWhQwEyqGopv3PCBLnMS
+aAfj6B2ubVEkZAoEnktZhPlj9fv4W7dIJYqHh1DhZJyTk47t2cSO82Kl5yXdiE/2
+0kkfXctw9I9OFFsJygfJGSnmuJadECISRxLP8oUlFcoSkEUJFAhsV9JyWNTyEQBq
+usiP/w9LcUnV0BUZMiRjBDHVNEBEQ8VEZIZMmCIx3YSQBwoQpBABjRgM66KpGxyM
+dEAEv7OdCVuIqNwminFJ14olkFfjMCFz9/bWEYGcYGDUyGH+ggWCYyb8XbuzV0cH
+Lk4d/fWhfiu3FmqfsptRNPA898WG1iOl+5eufZn7sTt9+eBAQ/z+o64ZHRO3VD8g
+J/vi9X33OxePJf2hqoXfbmR/XhlIe5k7LcubDrWMjz2pHZhZ5pz+tLXYGmyPnTlX
+ZKzsKaqa3/R45uDXWHlj0bpNs1Kr35jmZ+3hvPPTrpXX1vVdCH6Hg5lsQyQ/9M5p
+LKxo2xDCq5b+WP94crjk48Tmwj0Ne6vz51yqeQsr1RWv7i1Y1PWl48DNUc82Fi/r
+flp6Zlz/vj3B9pIK9+ivU3ro2HZ5yTvhhPah/WJbdI6i2hXXptSXHO4eezd/zdwD
+ZHovG5nKqnXv780OV22b1Lmz4vhvZFQ93w==
+=e9jL
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/msoida
+
+==================================================================
