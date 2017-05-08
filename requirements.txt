@@ -1,6 +1,6 @@
 flask
+peewee
 pytz
 python-decouple
-flask-mongoengine
 flask-login
 passlib

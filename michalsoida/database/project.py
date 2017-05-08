@@ -6,6 +6,7 @@ from .peewee import BaseModel
 class Project(BaseModel):
     title = TextField()
     description = TextField()
+
     class Meta:
         order_by = ['title']
 

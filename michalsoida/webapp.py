@@ -87,11 +87,11 @@ def error_page(error):
     return response
 
 
-@app.errorhandler(404) # Not Found
+@app.errorhandler(404)  # Not Found
 def error_page_404(error):
     return render_template('error-404.html'), 404
 
 
-@app.errorhandler(410) # Gone
+@app.errorhandler(410)  # Gone
 def error_page_410(error):
     return render_template('error-410.html'), 410

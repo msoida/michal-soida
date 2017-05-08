@@ -3,10 +3,12 @@ from datetime import datetime
 from flask import (Blueprint, render_template, make_response,
                    url_for, request, abort, flash, redirect)
 from flask_login import (current_user, login_required, login_url)
-from pytz import utc, timezone
+from pytz import timezone
 
 from .database import Project
 
+
+tz = timezone('Europe/Warsaw')
 
 frontend = Blueprint('frontend', __name__, template_folder='templates')
 
@@ -44,13 +46,15 @@ def projekty():
 
 @frontend.route('/o-stronie/')
 def o_stronie():
-    return render_template('o-stronie.html',data_godzina=datetime.now(tz=timezone('Europe/Warsaw')).strftime("%d.%m.%Y %H:%M:%S"))
+    t = datetime.now(tz).strftime('%d.%m.%Y %H:%M:%S')
+    return render_template('o-stronie.html', data_godzina=t)
 
 
 @frontend.route('/apple-touch-icon-precomposed.png')
 @frontend.route('/apple-touch-icon-144x144-precomposed.png')
 def apple_touch_icon():
-    return redirect(url_for('static', filename='apple-touch-icon-precomposed.png'))
+    return redirect(url_for('static',
+                            filename='apple-touch-icon-precomposed.png'))
 
 
 @frontend.route('/keybase.txt')

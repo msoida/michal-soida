@@ -1,14 +1,4 @@
 from flask import make_response
-from magic import Magic
-
-# magic = Magic(mime=True)
-
-
-# def make_magic_response(*args):
-#     resp = make_response(*args)
-#     mimetype = magic.from_buffer(resp.get_data())
-#     resp.headers['Content-Type'] = mimetype
-#     return resp
 
 
 def make_jpg_response(*args):

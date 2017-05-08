@@ -55,7 +55,8 @@ class PrintStorage(object):
         print("access route: {}".format(self.access_route))
         print("headers: {}".format(self.headers))
         print("cookies: {}".format(self.cookies))
-        print("date: {}".format(self.date.astimezone(tz).strftime('%d/%m/%Y %H:%M:%S')))
+        print("date: {}".format(
+            self.date.astimezone(tz).strftime('%d/%m/%Y %H:%M:%S')))
         print("speed: {}".format(self.speed))
 
     def save(self):
