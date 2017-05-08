@@ -16,7 +16,7 @@
 		<img width="18" height="18" src="{{ url_for('static', filename='s_logo.svg') }}" alt="logo"> Mój kąt w internecie
 	</h1>
 	<nav><hr>
-{%- set navigation = [dict(title="O mnie", url=url_for('index')), dict(title="Kontakt", url=url_for('kontakt')), dict(title="Moje projekty", url=url_for('projekty')), dict(title="O stronie", url=url_for('o_stronie'))] -%}
+{%- set navigation = [dict(title="O mnie", url=url_for('frontend.index')), dict(title="Kontakt", url=url_for('frontend.kontakt')), dict(title="Moje projekty", url=url_for('frontend.projekty')), dict(title="O stronie", url=url_for('frontend.o_stronie'))] -%}
 {%- for link in navigation -%}
 {%- if not loop.first %}
 	<span class="hidden"> - </span>

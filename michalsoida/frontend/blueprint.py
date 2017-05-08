@@ -5,7 +5,7 @@ from flask import (Blueprint, render_template, make_response,
 from flask_login import (current_user, login_required, login_url)
 from pytz import timezone
 
-from .database import Project
+from ..database import Project
 
 
 tz = timezone('Europe/Warsaw')
@@ -47,7 +47,7 @@ def projekty():
 @frontend.route('/o-stronie/')
 def o_stronie():
     t = datetime.now(tz).strftime('%d.%m.%Y %H:%M:%S')
-    return render_template('o-stronie.html', data_godzina=t)
+    return render_template('frontend/o-stronie.html', data_godzina=t)
 
 
 @frontend.route('/apple-touch-icon-precomposed.png')
