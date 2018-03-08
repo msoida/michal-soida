@@ -3,7 +3,7 @@ from datetime import datetime
 from pytz import utc, timezone
 from flask import g, request
 from peewee import CharField, TextField, IntegerField, FloatField
-from playhouse.fields import PickledField
+from playhouse.fields import PickleField
 from playhouse.postgres_ext import DateTimeTZField, ArrayField
 
 from .peewee import BaseModel
@@ -80,15 +80,15 @@ class PostgresStorage(BaseModel, PrintStorage):
     ip_country = CharField(null=True)
     visitor = TextField(null=True)
     status = IntegerField(null=True)
-    args = PickledField(null=True)
-    user_agent = PickledField(null=True)
+    args = PickleField(null=True)
+    user_agent = PickleField(null=True)
     access_route = ArrayField(CharField, null=True)
-    headers = PickledField(null=True)
-    cookies = PickledField(null=True)
+    headers = PickleField(null=True)
+    cookies = PickleField(null=True)
     speed = FloatField(null=True)
 
     class Meta:
-        db_table = 'tracking'
+        table_name = 'tracking'
 
 
 class Tracking(object):
