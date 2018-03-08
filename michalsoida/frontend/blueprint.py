@@ -40,7 +40,7 @@ def pgp():
 
 @frontend.route('/projekty/')
 def projekty():
-    projects = list(Project.select())
+    projects = Project.select().order_by(Project.title)
     return render_template('frontend/projekty.html', projects=projects)
 
 

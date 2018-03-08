@@ -89,7 +89,6 @@ class PostgresStorage(BaseModel, PrintStorage):
 
     class Meta:
         db_table = 'tracking'
-        order_by = ['-date']
 
 
 class Tracking(object):
