@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 {% block title %}O stronie{% endblock %}
-{% block content %}	<h1>O stronie</h1>
+{% block content %} <h1>O stronie</h1>
 	<h2>Front-end</h2>
 	<hr>
-	<p>Strona jest zgodna ze standardem HTML5 oraz CSS3. Tworząc ją stawiałem przede wszystkim na mały rozmiar i szybkość wyświetlania - dlatego nie ma na niej żadnego kodu javasript, wszystkie graficzne elementy są tworzone za pomocą CSS i SVG.</p>
-	<p>Aby umożliwić dostęp prostszymi (lub po prostu starszymi) urządzeniami, strona wyświetla się poprawnie w przeglądarkach nie obsługujących arkuszy CSS. Specjalna wersja formatowania jest wykorzystywana do drukowania stron.</p>
-	<p>Dzięki tym zabiegom cała strona mieści się w 2 KB + 15 KB plików statycznych (style,logo).</p>
+	<p>
+		Strona jest zgodna ze standardem HTML5 oraz CSS3. Tworząc ją stawiałem przede wszystkim na mały rozmiar i szybkość wyświetlania - dlatego nie ma na niej żadnego kodu javasript, wszystkie graficzne elementy są tworzone za pomocą CSS i SVG.
+	</p>
+	<p>
+		Aby umożliwić dostęp prostszymi (lub po prostu starszymi) urządzeniami, strona wyświetla się poprawnie w przeglądarkach nie obsługujących arkuszy CSS. Specjalna wersja formatowania jest wykorzystywana do drukowania stron.
+	</p>
+	<p>
+		Dzięki tym zabiegom cała strona mieści się w 2 KB + 15 KB plików statycznych (style,logo).
+	</p>
 	<h2>Back-end</h2>
 	<hr>
-	<p>Strona napisana jest w Pythonie i wykorzystuje framework <a href="http://flask.pocoo.org/">Flask</a>. Umożliwia on dodanie elementów dynamicznych, takich jak np. aktualna data i godzina: {{ data_godzina }}</p>
-	<p>Kod źródłowy można zobaczyć w serwisie <a href="http://github.com/msoida/michal-soida-pl">GitHub</a>.</p>
+	<p>
+		Strona napisana jest w Pythonie i wykorzystuje framework <a href="http://flask.pocoo.org/">Flask</a>. Kod źródłowy można zobaczyć w serwisie <a href="https://github.com/msoida/michal-soida">GitHub</a>.
+	</p>
 {%- endblock %}
