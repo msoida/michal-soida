@@ -19,6 +19,8 @@ app = Flask(__name__)
 app.secret_key = secret_key
 app.jinja_env.globals.update(utc=utc, tz=tz)
 
+login_manager.init_app(app)
+
 app.register_blueprint(auth)
 app.register_blueprint(frontend)
 
@@ -54,6 +56,7 @@ error500_description = ('The server has encountered an internal error'
 @app.errorhandler(406)  # Not Acceptable
 @app.errorhandler(408)  # Request Timeout
 @app.errorhandler(409)  # Conflict
+@app.errorhandler(410)  # Gone
 @app.errorhandler(411)  # Length Required
 @app.errorhandler(412)  # Precondition Failed
 @app.errorhandler(413)  # Request Entity Too Large
@@ -62,7 +65,6 @@ error500_description = ('The server has encountered an internal error'
 @app.errorhandler(416)  # Request Range Not Satisfiable
 @app.errorhandler(417)  # Expectation Failed
 @app.errorhandler(418)  # I'm a teapot
-@app.errorhandler(422)  # Unprocessable Entity
 @app.errorhandler(428)  # Precondition Required
 @app.errorhandler(429)  # Too Many Requests
 @app.errorhandler(431)  # Request Header Fields Too Large
@@ -92,6 +94,21 @@ def error_page_404(error):
     return render_template('error-404.html'), 404
 
 
-@app.errorhandler(410)  # Gone
-def error_page_410(error):
-    return render_template('error-410.html'), 410
+@app.errorhandler(422)  # Unprocessable Entity
+def error_422(error):
+    error_name = error.name
+    error_code = error.code
+    error_description = error.description
+    # Webargs attaches additional metadata to the `data` attribute
+    exc = getattr(error, 'exc')
+    if exc:
+        # Get validations from the ValidationError object
+        messages = exc.messages
+    else:
+        messages = ['Invalid request']
+    response = (render_template('error.html', error_name=error_name,
+                                error_code=error_code,
+                                error_description=error_description,
+                                messages=messages),
+                error_code)
+    return response

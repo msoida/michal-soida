@@ -5,4 +5,12 @@
 	<h1>{% block name %}{{ error_name|safe }}{% endblock %}</h1>
 	{% block desc %}{{ error_description|safe }}{% endblock %}
 	<a href="{{ url_for('frontend.index') }}">Wróć na stronę główną</a>
+{%- if messages is defined %}
+	<br>
+	<ul>
+{%- for message in messages %}
+		<li>{{ message }}</li>
+{%- endfor %}
+	</ul>
+{%- endif %}
 {%- endblock %}

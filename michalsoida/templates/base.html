@@ -29,7 +29,6 @@
 {%- endfor %}
 	<hr></nav>
 	</header>
-	<div id="contentWrapper">
 {%- with messages = get_flashed_messages() -%}
 {%- if messages %}
 	<section id="message">
@@ -39,6 +38,7 @@
 	</section><br>
 {%- endif -%}
 {%- endwith %}
+	<div id="contentWrapper">
 	<section id="content">
 {%- block content %}{% endblock %}
 	</section>

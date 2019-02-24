@@ -3,9 +3,10 @@ from flask import (Blueprint, render_template, make_response,
 from flask_login import (LoginManager, AnonymousUserMixin,
                          login_user, logout_user, login_required,
                          current_user)
-from passlib.pwd import genword
+from webargs import fields, missing
+from webargs.flaskparser import parser, use_kwargs
 
-from ..database import User, DoesNotExist
+from ..database import User
 
 auth = Blueprint('auth', __name__, template_folder='templates')
 
@@ -32,43 +33,32 @@ login_manager.login_message = login_required_message
 
 @login_manager.user_loader
 def load_user(session_token):
-    try:
-        return User.get(User.session_token == session_token)
-    except DoesNotExist:
-        return None
+    return User.get_or_none(User.session_token == session_token)
 
 
 @login_manager.request_loader
 def load_user_from_request(request):
-    api_key = request.args.get('api_key')
-    if request.method == 'POST':
-        api_key = request.form.get('api_key')
-    if api_key:
-        try:
-            return User.get(User.apikey == api_key)
-        except DoesNotExist:
-            return None
+    api_key = parser.parse_arg('api_key', fields.Str(), request)
+    if api_key is not missing:
+        return User.get_or_none(User.apikey == api_key)
     return None
 
 
+login_args = {
+    'next': fields.Str(),
+    'username': fields.Str(missing=''),
+    'password': fields.Str(missing=''),
+    'remember': fields.Boolean(missing=False),
+}
+
+
 @auth.route('/login/', methods=['GET', 'POST'])
-def login():
-    next = request.args.get('next')
-    if next is None:
+@use_kwargs(login_args)
+def login(next, username, password, remember):
+    if next is missing:
         next = url_for('frontend.index')
-    username = ''
-    password = ''
-    remember = False
     if request.method == 'POST':
-        next = request.form['next']
-        username = request.form['username']
-        password = request.form['password']
-        if request.form.get('remember') == 'yes':
-            remember = True
-        try:
-            user = User.get(User.username == username)
-        except DoesNotExist:
-            user = None
+        user = User.get_or_none(User.username == username)
         if user is not None:
             if user.verify_password(password):
                 login_user(user, remember=remember)
@@ -84,13 +74,3 @@ def logout():
     logout_user()
     flash(logout_message)
     return redirect(url_for('frontend.index'))
-
-
-@auth.route('/api/create/')
-@login_required
-def api_create():
-    user = current_user
-    user.apikey = genword(length=25)
-    user.save()
-    flash('API key created')
-    return redirect(url_for('index'))
