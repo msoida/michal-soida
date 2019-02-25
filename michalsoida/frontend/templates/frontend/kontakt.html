@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-{%- if english %}
-{% block title %}Contact{% endblock %}
-{%- else %}
-{% block title %}Kontakt{% endblock %}
+{% block title %}
+{%- if english -%}
+Contact
+{%- else -%}
+Kontakt
 {%- endif %}
+{%- endblock %}
 {% block content %}
 {%- if english %}
 	<h1>Contact</h1>
