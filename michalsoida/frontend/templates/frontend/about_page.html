@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}About this page{% endblock %}
+{% block content %}
+ <h1>O stronie</h1>
+	<h2>Front-end</h2>
+	<hr>
+	<p>
+		This page is compliant with HTML5 and CSS3 standards. I designed it with small size and display speed in mind - that's why there is no javascript on it, and all graphical elements are created using CSS and SVG.
+	</p>
+	<p>
+		To allow access with simpler (or simply older) devices, the page displays correctly in browsers that do not support CSS. Also, a special version of formatting is used when printing pages.
+	</p>
+	<p>
+		Thanks to these measures, the entire site is under 2 KB + 15 KB of static files (styles, logo).
+	</p>
+	<h2>Back-end</h2>
+	<hr>
+	<p>
+		Server-side software is written in Python, using <a href="http://flask.pocoo.org/">Flask</a> framework. Source code is available on <a href="https://github.com/msoida/michal-soida">GitHub</a>.
+	</p>
+{%- endblock %}

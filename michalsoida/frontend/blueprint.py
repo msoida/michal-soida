@@ -51,7 +51,9 @@ def en_contact():
 
 @frontend.route('/en/projects/')
 def en_projects():
-    return render_template('frontend/projekty.html', english=True)
+    projects = Project.select().order_by(Project.title)
+    return render_template('frontend/projekty.html', english=True,
+                           projects=projects)
 
 
 @frontend.route('/en/about-page/')
