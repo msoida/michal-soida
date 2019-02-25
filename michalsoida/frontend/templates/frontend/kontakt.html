@@ -1,10 +1,23 @@
 {% extends "base.html" %}
+{%- if english %}
+{% block title %}Contact{% endblock %}
+{%- else %}
 {% block title %}Kontakt{% endblock %}
-{% block content %}	<h1>Kontakt</h1>
+{%- endif %}
+{% block content %}
+{%- if english %}
+	<h1>Contact</h1>
+{%- else %}
+	<h1>Kontakt</h1>
+{%- endif %}
 	<ul>
 		<li>E-mail: michal@soida.pl</li>
 		<li><a href="https://www.linkedin.com/in/msoida">LinkedIn</a></li>
 		<li><a href="https://www.facebook.com/msoida">Facebook</a></li>
+{%- if english %}
+		<li>Phone - please contact me first by e-mail</li>
+{%- else %}
 		<li>Telefon - proszę najpierw o kontakt e-mailem</li>
+{%- endif %}
 	</ul>
 {%- endblock %}

@@ -39,6 +39,11 @@ def o_stronie():
     return render_template('frontend/o-stronie.html')
 
 
+@frontend.route('/en/contact/')
+def en_contact():
+    return render_template('frontend/kontakt.html', english=True)
+
+
 @frontend.route('/apple-touch-icon-precomposed.png')
 @frontend.route('/apple-touch-icon-144x144-precomposed.png')
 def apple_touch_icon():
