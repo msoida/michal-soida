@@ -1,6 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Moje projekty{% endblock %}
-{% block content %}	<h1>Moje projekty</h1>
+{% block title %}
+{%- if english -%}
+My projects
+{%- else -%}
+Moje projekty
+{%- endif %}
+{% endblock %}
+{% block content %}
+{%- if english %}
+	<h1>My projects</h1>
+{%- else %}
+	<h1>Moje projekty</h1>
+{%- endif %}
 {%- for project in projects %}
 	<h2>{{ project.title }}</h2>
 	<hr>
