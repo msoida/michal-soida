@@ -30,7 +30,7 @@ def kontakt():
 
 @frontend.route('/projekty/')
 def projekty():
-    projects = Project.select().order_by(Project.title)
+    projects = Project.select().order_by(Project.title_pl)
     return render_template('frontend/projekty.html', projects=projects)
 
 
@@ -51,7 +51,7 @@ def en_contact():
 
 @frontend.route('/en/projects/')
 def en_projects():
-    projects = Project.select().order_by(Project.title)
+    projects = Project.select().order_by(Project.title_en)
     return render_template('frontend/projekty.html', english=True,
                            projects=projects)
 
