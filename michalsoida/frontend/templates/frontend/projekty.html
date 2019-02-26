@@ -12,11 +12,19 @@ Moje projekty
 {%- else %}
 	<h1>Moje projekty</h1>
 {%- endif %}
-{%- for project in projects %}
-	<h2>{{ project.title }}</h2>
+{%- for project in projects if project.title_pl != 'CV" %}
+{%- if english %}
+	<h2>{{ project.title_en }}</h2>
+{%- else %}
+	<h2>{{ project.title_pl }}</h2>
+{%- endif %}
 	<hr>
 	<p>
-		{{ project.description }}
+{%- if english %}
+		{{ project.description_en }}
+{%- else %}
+		{{ project.description_pl }}
+{%- endif %}
 	</p>
 {%- endfor %}
 {%- endblock %}
