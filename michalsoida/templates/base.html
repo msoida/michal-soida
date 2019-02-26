@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	<script src="{{ url_for('static', filename='script.js') }}"></script>
+	{%- block head %}{% endblock %}
 	<title>{% block title %}{% endblock %}</title>
 </head>
 <body class="{% block body_class %}default{% endblock %}"><div id="outerWrapper">

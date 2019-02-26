@@ -1,6 +1,8 @@
 from flask import (Blueprint, render_template, make_response,
                    url_for, request, abort, flash, redirect)
 from flask_login import (current_user, login_required, login_url)
+from webargs import fields, missing, validate
+from webargs.flaskparser import use_kwargs
 
 from ..database import Project
 
@@ -31,7 +33,8 @@ def kontakt():
 @frontend.route('/projekty/')
 def projekty():
     projects = Project.select().order_by(Project.title_pl)
-    return render_template('frontend/projekty.html', projects=projects)
+    return render_template('frontend/projekty.html', projects=projects,
+                           user=current_user)
 
 
 @frontend.route('/o-stronie/')
@@ -53,7 +56,7 @@ def en_contact():
 def en_projects():
     projects = Project.select().order_by(Project.title_en)
     return render_template('frontend/projekty.html', english=True,
-                           projects=projects)
+                           projects=projects, user=current_user)
 
 
 @frontend.route('/en/about-page/')
@@ -79,3 +82,28 @@ def keybase_txt():
 @frontend.route('/index.php')
 def red_index():
     return redirect(url_for('index'))
+
+
+projekty_edit_args = {
+    'project_id': fields.Int(required=True),
+}
+
+
+@frontend.route('/projekty/edit/')
+@login_required
+@use_kwargs(projekty_edit_args)
+def projekty_edit(project_id):
+    project = Project.get_by_id(project_id)
+    return render_template('frontend/projekty.html', project=project)
+
+
+save_project_args = {
+    'project_id': fields.Int(required=True),
+}
+
+
+@frontend.route('/edit/submit', methods=['POST'])
+@login_required
+@use_kwargs(save_project_args)
+def save_project(project_id):
+    return redirect(url_for('.projekty'))

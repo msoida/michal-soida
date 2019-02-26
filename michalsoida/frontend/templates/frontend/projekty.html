@@ -13,10 +13,16 @@ Moje projekty
 	<h1>Moje projekty</h1>
 {%- endif %}
 {%- for project in projects if project.title_pl != 'CV' %}
+{%- if user.is_authenticated %}
+	<a href="{{ url_for('.projekty_edit', project_id=project.id) }}">
+{%- endif %}
 {%- if english %}
 	<h2>{{ project.title_en }}</h2>
 {%- else %}
 	<h2>{{ project.title_pl }}</h2>
+{%- endif %}
+{%- if user.is_authenticated %}
+	</a>
 {%- endif %}
 	<hr>
 	<p>

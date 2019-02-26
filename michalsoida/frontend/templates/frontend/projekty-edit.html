@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Edycja projektu{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/ui/trumbowyg.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/colors/ui/trumbowyg.colors.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/trumbowyg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/colors/trumbowyg.colors.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/fontsize/trumbowyg.fontsize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/history/trumbowyg.history.min.js"></script>
+{%- endblock %}
+{% block content %}
+	<p><form action="{{ url_for('.save_project') }}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="project_id" value="{{ project.id }}">
+		Nazwa PL:<input type="text" name="title_pl" size="50" required value="{{ project.title_pl }}"><br>
+		Nazwa EN:<input type="text" name="title_en" size="50" required value="{{ project.title_en }}"><br>
+        <br>
+        <!-- Miniatura: <input type="file" name="data"><br> -->
+        <!-- <br> -->
+        Opis PL:<br>
+		<textarea class="contentEditor" name="description_pl">{{ project.description_pl }}</textarea>
+        <br>
+        Opis EN:<br>
+		<textarea class="contentEditor" name="description_en">{{ project.description_en }}</textarea>
+        <br>
+        Treść PL:<br>
+        <textarea class="contentEditor" name="content_pl">{{ project.content_pl }}</textarea>
+        <br>
+        Treść EN:<br>
+        <textarea class="contentEditor" name="content_en">{{ project.content_en }}</textarea>
+        <br>
+        <input type="submit" value="Zapisz projekt"><br>
+	</form></p>
+    <script>
+        $(document).ready(function() {
+            $.trumbowyg.svgPath = "{{ url_for('static', filename='trumbowyg-icons.svg') }}";
+            $('.contentEditor').trumbowyg({
+                resetCss: true,
+                urlProtocol: 'http',
+                minimalLinks: true,
+                btns: [
+                    ['viewHTML'],
+                    // ['undo', 'redo'],
+                    ['formatting'],
+                    ['superscript', 'subscript', 'del'],
+                    ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                    // ['insertImage'],
+                    ['horizontalRule'],
+                    ['historyUndo', 'historyRedo'],
+                    ['fontsize', 'foreColor', 'backColor', 'strong', 'em'],
+                    ['unorderedList', 'orderedList'],
+                    ['removeformat'],
+                    ['link'],
+                    ['fullscreen']
+                ],
+            });
+        });
+    </script>
+{%- endblock %}
