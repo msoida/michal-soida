@@ -94,7 +94,7 @@ projekty_edit_args = {
 @use_kwargs(projekty_edit_args)
 def projekty_edit(project_id):
     project = Project.get_by_id(project_id)
-    return render_template('frontend/projekty.html', project=project)
+    return render_template('frontend/projekty-edit.html', project=project)
 
 
 save_project_args = {
