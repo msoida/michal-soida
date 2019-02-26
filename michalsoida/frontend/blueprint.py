@@ -5,6 +5,7 @@ from webargs import fields, missing, validate
 from webargs.flaskparser import use_kwargs
 
 from ..database import Project
+from ..functions import get_mimetype
 
 
 frontend = Blueprint('frontend', __name__, template_folder='templates')
@@ -114,7 +115,6 @@ save_project_args = {
 @use_kwargs(save_project_args)
 def save_project(project_id, title_pl, title_en, description_pl,
                  description_en, content_pl, content_en, data):
-    data = data.read()
     project = Project.get_by_id(project_id)
     project.title_pl = title_pl
     project.title_en = title_en
@@ -122,6 +122,11 @@ def save_project(project_id, title_pl, title_en, description_pl,
     project.description_en = description_en
     project.content_pl = content_pl
     project.content_en = content_en
-    # TODO - thumbnail data
+
+    if data is not None:
+        data = data.read()
+        project.thumbnail = data
+        project.thumbnail_mimetype = get_mimetype(data)
+
     project.save()
     return redirect(url_for('.projekty'))

@@ -1,4 +1,8 @@
 from flask import make_response
+from magic import Magic
+
+magic = Magic(mime=True)
+get_mimetype = magic.from_buffer
 
 
 def make_jpg_response(*args):
