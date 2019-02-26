@@ -2,13 +2,14 @@
 {% block title %}Edycja projektu{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/ui/trumbowyg.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/colors/ui/trumbowyg.colors.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/ui/trumbowyg.table.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/trumbowyg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/base64/trumbowyg.base64.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/colors/trumbowyg.colors.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/fontsize/trumbowyg.fontsize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.13.0/plugins/history/trumbowyg.history.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/pasteimage/trumbowyg.pasteimage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/trumbowyg.table.min.js"></script>
 {%- endblock %}
 {% block content %}
 	<p><form action="{{ url_for('.save_project') }}" method="post" enctype="multipart/form-data">
@@ -42,16 +43,15 @@
                 btns: [
                     ['viewHTML'],
                     // ['undo', 'redo'],
+                    ['historyUndo', 'historyRedo'],
                     ['formatting'],
-                    ['superscript', 'subscript', 'del'],
+                    ['strong', 'em', 'superscript', 'subscript'],
                     ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
                     // ['insertImage'],
                     ['horizontalRule'],
-                    ['historyUndo', 'historyRedo'],
-                    ['fontsize', 'foreColor', 'backColor', 'strong', 'em'],
                     ['unorderedList', 'orderedList'],
                     ['removeformat'],
-                    ['link'],
+                    ['link', 'base64', 'table'],
                     ['fullscreen']
                 ],
             });
