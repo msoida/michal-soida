@@ -14,8 +14,9 @@
 {% block content %}
 	<p><form action="{{ url_for('.save_project') }}" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="project_id" value="{{ project.id }}">
-		Nazwa PL:<input type="text" name="title_pl" size="50" required value="{{ project.title_pl }}"><br>
-		Nazwa EN:<input type="text" name="title_en" size="50" required value="{{ project.title_en }}"><br>
+		Nazwa PL: <input type="text" name="title_pl" size="50" required value="{{ project.title_pl }}"><br>
+		<br>
+		Nazwa EN: <input type="text" name="title_en" size="50" required value="{{ project.title_en }}"><br>
         <br>
         <!-- Miniatura: <input type="file" name="data"><br> -->
         <!-- <br> -->
@@ -42,18 +43,23 @@
                 minimalLinks: true,
                 btns: [
                     ['viewHTML'],
-                    // ['undo', 'redo'],
                     ['historyUndo', 'historyRedo'],
                     ['formatting'],
                     ['strong', 'em', 'superscript', 'subscript'],
                     ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-                    // ['insertImage'],
                     ['horizontalRule'],
                     ['unorderedList', 'orderedList'],
                     ['removeformat'],
+                    // ['insertImage'],
                     ['link', 'base64', 'table'],
                     ['fullscreen']
                 ],
+			    plugins: {
+			        table: {
+			            rows: 10,
+			            columns: 6,
+			        }
+			    },
             });
         });
     </script>

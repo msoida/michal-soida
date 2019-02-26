@@ -99,11 +99,29 @@ def projekty_edit(project_id):
 
 save_project_args = {
     'project_id': fields.Int(required=True),
+    'title_pl': fields.Str(required=True),
+    'title_en': fields.Str(required=True),
+    'description_pl': fields.Str(required=True),
+    'description_en': fields.Str(required=True),
+    'content_pl': fields.Str(required=True),
+    'content_en': fields.Str(required=True),
+    'data': fields.Raw(location='files', missing=None),
 }
 
 
 @frontend.route('/edit/submit', methods=['POST'])
 @login_required
 @use_kwargs(save_project_args)
-def save_project(project_id):
+def save_project(project_id, title_pl, title_en, description_pl,
+                 description_en, content_pl, content_en, data):
+    data = data.read()
+    project = Project.get_by_id(project_id)
+    project.title_pl = title_pl
+    project.title_en = title_en
+    project.description_pl = description_pl
+    project.description_en = description_en
+    project.content_pl = content_pl
+    project.content_en = content_en
+    # TODO - thumbnail data
+    project.save()
     return redirect(url_for('.projekty'))
