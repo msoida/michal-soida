@@ -26,6 +26,13 @@ def index():
     return render_template('frontend/o-mnie.html')
 
 
+@frontend.route('/cv/')
+def cv():
+    project = Project.get(Project.title_pl == 'CV')
+    return render_template('frontend/cv.html', project=project,
+                           user=current_user)
+
+
 @frontend.route('/kontakt/')
 def kontakt():
     return render_template('frontend/kontakt.html')
@@ -46,6 +53,13 @@ def o_stronie():
 @frontend.route('/en/')
 def en_index():
     return render_template('frontend/about-me.html', english=True)
+
+
+@frontend.route('/en/cv/')
+def en_cv():
+    project = Project.get(Project.title_pl == 'CV')
+    return render_template('frontend/cv.html', project=project,
+                           user=current_user, english=True)
 
 
 @frontend.route('/en/contact/')

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+CV
+{%- endif %}
+{% endblock %}
+{% block content %}
+{%- if user.is_authenticated %}
+	<a href="{{ url_for('.projekty_edit', project_id=project.id) }}">
+{%- endif %}
+	<h1>CV</h1>
+{%- if user.is_authenticated %}
+	</a>
+{%- endif %}
+{%- if english %}
+		{{ project.content_en }}
+{%- else %}
+		{{ project.content_pl }}
+{%- endif %}
+{%- endfor %}
+{%- endblock %}

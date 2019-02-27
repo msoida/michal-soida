@@ -21,9 +21,9 @@
 	</h1>
 	<nav><hr>
 {%- if english %}
-{%- set navigation = [dict(title="About me", url=url_for('frontend.en_index')), dict(title="Contact", url=url_for('frontend.en_contact')), dict(title="My projects", url=url_for('frontend.en_projects')), dict(title="About this page", url=url_for('frontend.en_about_page')), dict(title="Wersja polska", url=url_for('frontend.index'))] -%}
+{%- set navigation = [dict(title="About me", url=url_for('frontend.en_index')), dict(title="CV", url=url_for('frontend.en_cv')), dict(title="Contact", url=url_for('frontend.en_contact')), dict(title="My projects", url=url_for('frontend.en_projects')), dict(title="About this page", url=url_for('frontend.en_about_page')), dict(title="Wersja polska", url=url_for('frontend.index'))] -%}
 {%- else %}
-{%- set navigation = [dict(title="O mnie", url=url_for('frontend.index')), dict(title="Kontakt", url=url_for('frontend.kontakt')), dict(title="Moje projekty", url=url_for('frontend.projekty')), dict(title="O stronie", url=url_for('frontend.o_stronie')), dict(title="English version", url=url_for('frontend.en_index'))] -%}
+{%- set navigation = [dict(title="O mnie", url=url_for('frontend.index')), dict(title="CV", url=url_for('frontend.cv')), dict(title="Kontakt", url=url_for('frontend.kontakt')), dict(title="Moje projekty", url=url_for('frontend.projekty')), dict(title="O stronie", url=url_for('frontend.o_stronie')), dict(title="English version", url=url_for('frontend.en_index'))] -%}
 {%- endif %}
 {%- for link in navigation -%}
 {%- if not loop.first %}
