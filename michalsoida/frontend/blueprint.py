@@ -1,7 +1,7 @@
 from flask import (Blueprint, render_template, make_response,
                    url_for, request, abort, flash, redirect)
 from flask_login import (current_user, login_required, login_url)
-from webargs import fields, missing, validate
+from webargs import fields, validate
 from webargs.flaskparser import use_kwargs
 
 from ..database import Project

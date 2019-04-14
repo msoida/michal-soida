@@ -45,7 +45,7 @@ def load_user_from_request(request):
 
 
 login_args = {
-    'next': fields.Str(),
+    'next': fields.Str(missing=None),
     'username': fields.Str(missing=''),
     'password': fields.Str(missing=''),
     'remember': fields.Boolean(missing=False),
@@ -55,7 +55,7 @@ login_args = {
 @auth.route('/login/', methods=['GET', 'POST'])
 @use_kwargs(login_args)
 def login(next, username, password, remember):
-    if next is missing:
+    if next is None:
         next = url_for('frontend.index')
     if request.method == 'POST':
         user = User.get_or_none(User.username == username)
