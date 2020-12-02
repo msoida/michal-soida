@@ -5,12 +5,12 @@ Flask-Login==0.4.1
 gunicorn==19.9.0
 itsdangerous==0.24
 Jinja2==2.10.1
-MarkupSafe==1.0
+MarkupSafe==1.1.1
 marshmallow==2.18.1
 packaging==16.8
 passlib==1.7.1
 peewee==3.8.2
-psycopg2==2.7.7
+psycopg2==2.8.6
 pyparsing==2.2.0
 python-decouple==3.1
 python-dotenv==0.10.1
