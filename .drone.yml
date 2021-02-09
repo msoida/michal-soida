@@ -1,0 +1,9 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build-and-push
+  image: plugins/docker
+  settings:
+    repo: registry.krk.xofi.dev/msoida/michal-soida
