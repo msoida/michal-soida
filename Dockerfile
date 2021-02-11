@@ -1,7 +1,7 @@
 FROM python:3-slim-buster
 
 COPY ["requirements.txt", "/app/"]
-RUN apt-get update && apt-get -y install nginx libpq5 gcc libpq-dev && \
+RUN apt-get update && apt-get -y install nginx libpq5 gcc libpq-dev libmagic-dev && \
     pip install --no-cache-dir -r /app/requirements.txt supervisor && \
     apt-get -y remove gcc libpq-dev && \
     apt-get -y autoremove && \
