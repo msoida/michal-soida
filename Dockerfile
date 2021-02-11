@@ -14,6 +14,7 @@ COPY ["nginx.conf", "/etc/nginx/sites-enabled/default"]
 COPY ["michalsoida", "/app/michalsoida/"]
 COPY ["start.sh", "/app/"]
 COPY ["supervisord.conf", "/app/"]
+COPY ["cv_pl.pdf", "/app/michalsoida/static/cv/"]
 
 EXPOSE 80
 WORKDIR /app
