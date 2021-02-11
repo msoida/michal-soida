@@ -1,4 +1,4 @@
-from locale import setlocale, LC_ALL
+from locale import setlocale, LC_ALL, Error as LocaleError
 
 from pytz import utc, timezone
 from flask import Flask, render_template
@@ -12,7 +12,11 @@ from .frontend import frontend
 # ----------------   VARIABLES   --------------- #
 
 
-setlocale(LC_ALL, ('pl_PL', 'UTF-8'))
+try:
+    setlocale(LC_ALL, ('pl_PL', 'UTF-8'))
+except LocaleError:
+    print('WARNING: pl_PL locale not installed, using default')
+
 tz = timezone('Europe/Warsaw')
 
 app = Flask(__name__)
