@@ -6,4 +6,4 @@ steps:
 - name: build-and-push
   image: plugins/docker
   settings:
-    repo: registry.krk.xofi.dev/msoida/michal-soida
+    repo: cr.xofi.io/msoida/michal-soida
