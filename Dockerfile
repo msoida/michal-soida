@@ -1,4 +1,4 @@
-FROM cr.xofi.io/library/python:3-slim-buster
+FROM cr.xofi.io/library/python:3-slim-bullseye
 
 COPY ["requirements.txt", "/app/"]
 RUN apt-get update && apt-get -y install nginx libpq5 gcc libpq-dev libmagic-dev && \
