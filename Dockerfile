@@ -1,7 +1,7 @@
 FROM cr.xofi.io/library/python:3-slim-bullseye
 
 COPY ["requirements.txt", "/app/"]
-RUN apt-get update && apt-get -y install nginx libpq5 gcc libpq-dev libmagic-dev && \
+RUN apt-get update && apt-get -y install tini nginx libpq5 gcc libpq-dev libmagic-dev && \
     pip install --no-cache-dir -r /app/requirements.txt supervisor && \
     apt-get -y remove gcc libpq-dev && \
     apt-get -y autoremove && \
@@ -18,4 +18,5 @@ COPY ["cv_pl.pdf", "/app/michalsoida/static/cv/"]
 
 EXPOSE 80
 WORKDIR /app
+ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 CMD ["/bin/sh", "start.sh"]
