@@ -20,3 +20,4 @@ EXPOSE 80
 WORKDIR /app
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 CMD ["/bin/sh", "start.sh"]
+HEALTHCHECK --timeout=10s CMD ["curl", "-f", "http://localhost"]
