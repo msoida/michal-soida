@@ -1,7 +1,7 @@
 FROM cr.xofi.io/library/python:3-slim-bullseye
 
 COPY ["requirements.txt", "/app/"]
-RUN apt-get update && apt-get -y install tini nginx libpq5 gcc libpq-dev libmagic-dev && \
+RUN apt-get update && apt-get -y install tini curl nginx libpq5 gcc libpq-dev libmagic-dev && \
     pip install --no-cache-dir -r /app/requirements.txt supervisor && \
     apt-get -y remove gcc libpq-dev && \
     apt-get -y autoremove && \
