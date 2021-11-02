@@ -4,6 +4,6 @@ name: default
 
 steps:
 - name: build-and-push
-  image: plugins/docker
+  image: cr.xofi.io/plugins/docker:latest
   settings:
     repo: cr.xofi.io/msoida/michal-soida
