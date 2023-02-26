@@ -1,0 +1,12 @@
+Flask
+Flask-Login
+gevent
+gunicorn
+passlib
+peewee
+psycopg2
+python-decouple
+python-dotenv
+python-magic
+pytz
+webargs==5.5.3
