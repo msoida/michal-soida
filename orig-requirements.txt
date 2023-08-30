@@ -9,4 +9,4 @@ python-decouple
 python-dotenv
 python-magic
 pytz
-webargs==5.5.3
+webargs==6.0.0
