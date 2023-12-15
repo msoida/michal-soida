@@ -4,7 +4,8 @@ from pytz import utc, timezone
 from flask import Flask, render_template
 
 from .settings import secret_key
-from .database import db, Tracking
+# from .database import db, Tracking
+from .database import db
 from .auth import auth, login_manager
 from .frontend import frontend
 
@@ -40,7 +41,7 @@ def _db_close(exc):
         db.close()
 
 
-tracking = Tracking(app)
+# tracking = Tracking(app)
 
 
 # -----------------   ERRORS   ----------------- #
