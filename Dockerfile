@@ -15,6 +15,7 @@ COPY ["michalsoida", "/app/michalsoida/"]
 COPY ["start.sh", "/app/"]
 COPY ["supervisord.conf", "/app/"]
 COPY ["cv_pl.pdf", "/app/michalsoida/static/cv/"]
+COPY ["cv_en.pdf", "/app/michalsoida/static/cv/"]
 
 EXPOSE 80
 WORKDIR /app

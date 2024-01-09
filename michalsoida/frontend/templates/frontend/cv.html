@@ -9,8 +9,10 @@ CV
 	<h1>CV</h1>
 {%- endif %}
 {%- if english %}
+		<a href="{{ url_for('static', filename='cv/cv_en.pdf') }}">CV - PDF version</a>
 		{{ project.content_en|safe }}
 {%- else %}
+		<a href="{{ url_for('static', filename='cv/cv_pl.pdf') }}">CV - wersja PDF</a>
 		{{ project.content_pl|safe }}
 {%- endif %}
 {%- endblock %}
