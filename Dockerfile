@@ -1,4 +1,4 @@
-FROM cr.xofi.io/library/python:3.11-slim-bookworm
+FROM cr.xofi.io/library/python:3.13-slim-trixie
 
 COPY ["requirements.txt", "/app/"]
 RUN apt-get update && apt-get -y install tini curl nginx libpq5 gcc libpq-dev libmagic-dev && \
