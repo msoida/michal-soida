@@ -2,7 +2,9 @@ Flask
 Flask-Login
 gevent
 gunicorn
-passlib
+libpass
+marshmallow==3.26.2
+# passlib
 peewee
 psycopg2
 python-decouple
