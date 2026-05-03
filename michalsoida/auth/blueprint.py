@@ -38,7 +38,7 @@ def load_user(session_token):
 
 @login_manager.request_loader
 def load_user_from_request(request):
-    api_key = parser.parse_arg('api_key', fields.Str(), request)
+    api_key = parser.parse({'api_key': fields.Str()}, request)
     if api_key is not missing:
         return User.get_or_none(User.apikey == api_key)
     return None

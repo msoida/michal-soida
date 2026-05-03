@@ -17,7 +17,7 @@ python-decouple==3.8
 python-dotenv==1.2.2
 python-magic==0.4.27
 pytz==2026.1.post1
-webargs==5.5.3
+webargs==8.7.1
 Werkzeug==3.1.8
 zope.event==6.2
 zope.interface==8.4
